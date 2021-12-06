@@ -1,15 +1,13 @@
 package com.crm.market.stock.model;
 
 import com.crm.market.stock.model.common.AbstractEntity;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.EqualsAndHashCode;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import javax.persistence.*;
 import java.math.BigDecimal;
 
 @Data
+@Builder
 @NoArgsConstructor
 @AllArgsConstructor
 @EqualsAndHashCode(callSuper = true)
@@ -18,8 +16,10 @@ import java.math.BigDecimal;
 public class LigneVente extends AbstractEntity {
 
     @ManyToOne
-    @JoinColumn(name = "idvente")
+    @JoinColumn(name = "idVente")
     private Ventes vente;
 
     private BigDecimal quantite;
+
+    private BigDecimal prixUnitaite;
 }

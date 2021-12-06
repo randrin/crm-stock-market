@@ -1,15 +1,13 @@
 package com.crm.market.stock.model;
 
 import com.crm.market.stock.model.common.AbstractEntity;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.EqualsAndHashCode;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import javax.persistence.*;
 import java.math.BigDecimal;
 
 @Data
+@Builder
 @NoArgsConstructor
 @AllArgsConstructor
 @EqualsAndHashCode(callSuper = true)
@@ -30,6 +28,6 @@ public class Article extends AbstractEntity {
     private String photo;
 
     @ManyToOne
-    @JoinColumn(name = "idcategory")
+    @JoinColumn(name = "idCategory")
     private Category category;
 }

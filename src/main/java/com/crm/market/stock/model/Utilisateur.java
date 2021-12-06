@@ -1,15 +1,14 @@
 package com.crm.market.stock.model;
 
 import com.crm.market.stock.model.common.AbstractEntity;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.EqualsAndHashCode;
-import lombok.NoArgsConstructor;
+import com.crm.market.stock.model.common.Addresse;
+import lombok.*;
 
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import javax.persistence.*;
+import java.util.List;
 
 @Data
+@Builder
 @NoArgsConstructor
 @AllArgsConstructor
 @EqualsAndHashCode(callSuper = true)
@@ -19,5 +18,23 @@ public class Utilisateur extends AbstractEntity {
 
     private String nom;
 
+    private String prenom;
 
+    private String email;
+
+    private String dateDeNaissance;
+
+    private String motDePasse;
+
+    @Embedded
+    private Addresse addresse;
+
+    private String photo;
+
+    @ManyToOne
+    @JoinColumn(name = "idEntreprise")
+    private Entreprise entreprise;
+
+    @OneToMany(mappedBy = "utilisateur")
+    private List<Roles> roles;
 }

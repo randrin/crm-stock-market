@@ -1,14 +1,14 @@
 package com.crm.market.stock.model;
 
 import com.crm.market.stock.model.common.AbstractEntity;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.EqualsAndHashCode;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import javax.persistence.*;
+import java.math.BigDecimal;
+import java.time.Instant;
 
 @Data
+@Builder
 @NoArgsConstructor
 @AllArgsConstructor
 @EqualsAndHashCode(callSuper = true)
@@ -16,7 +16,13 @@ import javax.persistence.*;
 @Table
 public class MvtStk extends AbstractEntity {
 
+    private Instant dateMvt;
+
+    private BigDecimal quantite;
+
     @ManyToOne
-    @JoinColumn(name = "idarticle")
+    @JoinColumn(name = "idArticle")
     private Article article;
+
+    private TypeMvtStk typeMvtStk;
 }

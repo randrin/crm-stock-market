@@ -1,17 +1,16 @@
 package com.crm.market.stock.model;
 
 import com.crm.market.stock.model.common.AbstractEntity;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.EqualsAndHashCode;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import javax.persistence.Entity;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import java.time.Instant;
 import java.util.List;
 
 @Data
+@Builder
 @NoArgsConstructor
 @AllArgsConstructor
 @EqualsAndHashCode(callSuper = true)
@@ -23,4 +22,8 @@ public class Ventes extends AbstractEntity {
 
     @OneToMany(mappedBy = "vente")
     private List<LigneVente> ligneVentes;
+
+    private Instant dateVente;
+
+    private String commentaire;
 }

@@ -1,17 +1,14 @@
 package com.crm.market.stock.model;
 
 import com.crm.market.stock.model.common.AbstractEntity;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.EqualsAndHashCode;
-import lombok.NoArgsConstructor;
-import org.w3c.dom.stylesheets.LinkStyle;
+import lombok.*;
 
 import javax.persistence.*;
 import java.time.Instant;
 import java.util.List;
 
 @Data
+@Builder
 @NoArgsConstructor
 @AllArgsConstructor
 @EqualsAndHashCode(callSuper = true)
@@ -24,7 +21,7 @@ public class CommandeClient extends AbstractEntity {
     private Instant dateCommande;
 
     @ManyToOne
-    @JoinColumn(name = "idclient")
+    @JoinColumn(name = "idClient")
     private Client client;
 
     @OneToMany(mappedBy = "commandeClient")

@@ -4,6 +4,7 @@ import com.crm.market.stock.model.common.AbstractEntity;
 import com.crm.market.stock.model.common.Addresse;
 import lombok.*;
 
+import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
@@ -21,6 +22,7 @@ public class Entreprise extends AbstractEntity {
 
     private String description;
 
+    @Embedded
     private Addresse addresse;
 
     private String codeFiscale;

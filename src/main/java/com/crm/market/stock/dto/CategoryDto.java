@@ -1,5 +1,7 @@
 package com.crm.market.stock.dto;
 
+import com.crm.market.stock.model.Category;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Builder;
 import lombok.Data;
 
@@ -15,5 +17,31 @@ public class CategoryDto {
 
     private String designation;
 
+    @JsonIgnore
     private List<ArticleDto> articles;
+
+    public CategoryDto fromEntity(Category category) {
+        if(category == null) {
+            return null;
+            // TODO throws on ecxeption
+        }
+        return CategoryDto.builder()
+                .id(category.getId())
+                .designation(category.getDesignation())
+                .code(category.getCode())
+                .build();
+    }
+
+    public Category toEntity(CategoryDto categoryDto) {
+        if(categoryDto == null) {
+            return null;
+            // TODO throws on ecxeption
+        }
+        Category category = new Category();
+        category.setId(categoryDto.getId());
+        category.setCode(categoryDto.getCode());
+        category.setDesignation(categoryDto.getDesignation());
+
+        return category;
+    }
 }

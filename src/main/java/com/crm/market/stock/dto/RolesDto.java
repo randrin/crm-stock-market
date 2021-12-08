@@ -1,6 +1,5 @@
 package com.crm.market.stock.dto;
 
-import com.crm.market.stock.model.Category;
 import com.crm.market.stock.model.Roles;
 import lombok.Builder;
 import lombok.Data;

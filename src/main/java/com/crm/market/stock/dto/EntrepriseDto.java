@@ -1,14 +1,12 @@
 package com.crm.market.stock.dto;
 
-import com.crm.market.stock.dto.common.AddresseDto;
-import com.crm.market.stock.model.Category;
 import com.crm.market.stock.model.Entreprise;
-import com.crm.market.stock.model.Utilisateur;
 import com.crm.market.stock.model.common.Addresse;
 import lombok.Builder;
 import lombok.Data;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Builder
 @Data
@@ -32,7 +30,7 @@ public class EntrepriseDto {
 
     private String siteWeb;
 
-    private List<Utilisateur> utilisateurs;
+    private List<UtilisateurDto> utilisateurs;
 
     public static EntrepriseDto fromEntity(Entreprise entreprise) {
         if (entreprise == null) {
@@ -49,7 +47,8 @@ public class EntrepriseDto {
                 .email(entreprise.getEmail())
                 .numTel(entreprise.getNumTel())
                 .siteWeb(entreprise.getSiteWeb())
-                .utilisateurs(entreprise.getUtilisateurs())
+                .utilisateurs(entreprise.getUtilisateurs() != null ?
+                        entreprise.getUtilisateurs().stream().map(UtilisateurDto::fromEntity).collect(Collectors.toList()) : null)
                 .build();
     }
 
@@ -68,7 +67,8 @@ public class EntrepriseDto {
         entreprise.setEmail(entrepriseDto.getEmail());
         entreprise.setNom(entrepriseDto.getNumTel());
         entreprise.setSiteWeb(entrepriseDto.getSiteWeb());
-        entreprise.setUtilisateurs(entrepriseDto.getUtilisateurs());
+        entreprise.setUtilisateurs(entrepriseDto.getUtilisateurs() != null ?
+                entrepriseDto.getUtilisateurs().stream().map(UtilisateurDto::toEntity).collect(Collectors.toList()) : null);
 
         return entreprise;
     }

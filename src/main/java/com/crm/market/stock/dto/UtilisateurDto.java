@@ -1,13 +1,11 @@
 package com.crm.market.stock.dto;
 
 import com.crm.market.stock.dto.common.AddresseDto;
-import com.crm.market.stock.model.Category;
 import com.crm.market.stock.model.Utilisateur;
 import lombok.Builder;
 import lombok.Data;
 
 import java.util.List;
-import java.util.stream.Collector;
 import java.util.stream.Collectors;
 
 @Builder
@@ -49,8 +47,8 @@ public class UtilisateurDto {
                 .addresse(AddresseDto.fromEntity(utilisateur.getAddresse()))
                 .photo(utilisateur.getPhoto())
                 .entreprise(EntrepriseDto.fromEntity(utilisateur.getEntreprise()))
-                //.roles(utilisateur.getRoles() != null
-                //        ? utilisateur.getRoles().stream().map(RolesDto::fromEntity).collect(Collectors.toList()) : null)
+                .roles(utilisateur.getRoles() != null
+                        ? utilisateur.getRoles().stream().map(RolesDto::fromEntity).collect(Collectors.toList()) : null)
                 .build();
     }
 
@@ -69,7 +67,8 @@ public class UtilisateurDto {
         utilisateur.setAddresse(AddresseDto.toEntity(utilisateurDto.getAddresse()));
         utilisateur.setPhoto(utilisateurDto.getPhoto());
         utilisateur.setEntreprise(EntrepriseDto.toEntity(utilisateurDto.getEntreprise()));
-        //utilisateur.setRoles(utilisateur.getRoles().stream().map(RolesDto::toEntity).collect(Collectors.toList()));
+        utilisateur.setRoles(utilisateurDto.getRoles() != null ?
+                utilisateurDto.getRoles().stream().map(RolesDto::toEntity).collect(Collectors.toList()) : null);
 
         return utilisateur;
     }

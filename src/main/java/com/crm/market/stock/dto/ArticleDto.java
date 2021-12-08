@@ -1,7 +1,6 @@
 package com.crm.market.stock.dto;
 
 import com.crm.market.stock.model.Article;
-import com.crm.market.stock.model.Category;
 import lombok.Builder;
 import lombok.Data;
 
@@ -27,7 +26,7 @@ public class ArticleDto {
 
     private CategoryDto category;
 
-    public ArticleDto fromEntity(Article article) {
+    public static ArticleDto fromEntity(Article article) {
         if(article == null) {
             return null;
             // TODO throws on ecxeption

@@ -1,12 +1,12 @@
 package com.crm.market.stock.dto;
 
 import com.crm.market.stock.dto.common.AddresseDto;
-import com.crm.market.stock.model.Category;
 import com.crm.market.stock.model.Client;
 import lombok.Builder;
 import lombok.Data;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Builder
 @Data
@@ -41,8 +41,27 @@ public class ClientDto {
                 .photo(client.getPhoto())
                 .mail(client.getMail())
                 .numTel(client.getNumTel())
-                //.commandeClients(client.getCommandesClient() != null
-                //        ? client.getCommandesClient().stream().map(CommandeClientDto::fromEntity).collect(Collectors.toList()) : null)
+                .commandeClients(client.getCommandeClients() != null
+                        ? client.getCommandeClients().stream().map(CommandeClientDto::fromEntity).collect(Collectors.toList()) : null)
                 .build();
+    }
+
+    public static Client toEntity(ClientDto clientDto) {
+        if(clientDto == null) {
+            return null;
+            // TODO throws on ecxeption
+        }
+        Client client = new Client();
+        client.setId(clientDto.getId());
+        client.setNom(clientDto.getNom());
+        client.setPrenom(clientDto.getPrenom());
+        client.setAddresse(AddresseDto.toEntity(clientDto.getAddresse()));
+        client.setPhoto(clientDto.getPhoto());
+        client.setMail(clientDto.getMail());
+        client.setNumTel(clientDto.getNumTel());
+        client.setCommandeClients(clientDto.getCommandeClients() != null ?
+                clientDto.getCommandeClients().stream().map(CommandeClientDto::toEntity).collect(Collectors.toList()) : null);
+
+        return client;
     }
 }

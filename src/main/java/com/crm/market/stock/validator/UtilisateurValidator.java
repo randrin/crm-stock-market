@@ -56,14 +56,14 @@ public class UtilisateurValidator {
                 errors.add("Le champ zip code est obbligatoire.");
             }
         }
-        if(StringUtils.hasLength(utilisateurDto.getPhoto())) {
+        if(!StringUtils.hasLength(utilisateurDto.getPhoto())) {
             errors.add("Veuillez renseigner la photo de l'utilisateur.");
         }
-        if(StringUtils.hasLength(utilisateurDto.getEmail())) {
-            errors.add("Veuillez renseigner l'email de l'utilisateur'.");
+        if(!StringUtils.hasLength(utilisateurDto.getEmail())) {
+            errors.add("Veuillez renseigner l'email de l'utilisateur.");
         }
-        if(StringUtils.hasLength(utilisateurDto.getEmail())) {
-            errors.add("Veuillez renseigner l'email de l'utilisateur'.");
+        if(!StringUtils.hasLength(utilisateurDto.getEntreprise().getNom())) {
+            errors.add("Veuillez renseigner l'entreprise.");
         }
         return errors;
     }

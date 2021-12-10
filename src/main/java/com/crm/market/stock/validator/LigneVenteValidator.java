@@ -15,6 +15,7 @@ public class LigneVenteValidator {
             errors.add("Veuillez renseigner le code vente.");
             errors.add("Veuillez renseigner la quantité de la vente.");
             errors.add("Veuillez renseigner le prix unitaire de la vente.");
+            return errors;
         }
         if (!StringUtils.hasLength(ligneVenteDto.getVente().getCode())) {
             errors.add("Veuillez renseigner le code vente.");

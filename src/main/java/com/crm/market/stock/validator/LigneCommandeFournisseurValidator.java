@@ -16,6 +16,7 @@ public class LigneCommandeFournisseurValidator {
             errors.add("Veuillez renseigner le code commande fournisseur.");
             errors.add("Veuillez renseigner la quantité de la commande.");
             errors.add("Veuillez renseigner le prix unitaire de la commande.");
+            return errors;
         }
         if (!StringUtils.hasLength(ligneCommandeFournisseurDto.getArticle().getCodeArticle())) {
             errors.add("Veuillez renseigner le code de l'article.");

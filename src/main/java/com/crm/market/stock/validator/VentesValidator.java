@@ -15,6 +15,7 @@ public class VentesValidator {
         if(ventesDto == null) {
             errors.add("Veuillez renseigner le code de vente.");
             errors.add("La ligne ventes ne doit pas etre vide.");
+            return errors;
         }
         if(!StringUtils.hasLength(ventesDto.getCode())) {
             errors.add("Veuillez renseigner le code de vente.");

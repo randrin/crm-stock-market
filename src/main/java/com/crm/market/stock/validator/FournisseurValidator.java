@@ -17,6 +17,7 @@ public class FournisseurValidator {
             errors.add("Veuillez renseigner la photo du fournisseur.");
             errors.add("Veuillez renseigner l'email du fournisseur.");
             errors.add("Veuillez renseigner le numéro de téléphone du fournisseur.");
+            return errors;
         }
         if(!StringUtils.hasLength(fournisseurDto.getNom())) {
             errors.add("Veuillez renseigner le nom du fourmisseur.");

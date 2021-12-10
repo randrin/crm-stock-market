@@ -22,6 +22,7 @@ public class EntrepriseValidator {
             errors.add("Veuillez renseigner le numéro de téléphone de l'entreprise.");
             errors.add("Veuillez renseigner le site web de l'entreprise.");
             errors.add("Veuillez selectionner un utilisateur.");
+            return errors;
         }
         if(!StringUtils.hasLength(entrepriseDto.getNom())) {
             errors.add("Veuillez renseigner le nom de l'entreprise.");

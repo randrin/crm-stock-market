@@ -14,6 +14,7 @@ public class RolesValidator {
         if(rolesDto == null) {
             errors.add("Veuillez renseigner le nom du role.");
             errors.add("Veuillez renseigner le nom de l'utilisateur.");
+            return errors;
         }
 
         if (!StringUtils.hasLength(rolesDto.getRoleName())) {

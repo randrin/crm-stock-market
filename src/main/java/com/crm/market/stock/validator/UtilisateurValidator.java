@@ -18,6 +18,7 @@ public class UtilisateurValidator {
             errors.add("Veuillez renseigner l'email de l'utilisateur.");
             errors.add("Veuillez renseigner la date de naissance de l'utilisateur.");
             errors.add("Veuillez renseigner la photo de l'utilisateur.");
+            return errors;
         }
         if(!StringUtils.hasLength(utilisateurDto.getNom())) {
             errors.add("Veuillez renseigner le nom de l'utilisateur.");

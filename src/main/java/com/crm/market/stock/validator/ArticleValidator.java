@@ -19,6 +19,7 @@ public class ArticleValidator {
             errors.add("Veuillez renseigner le taux TVA de l'article.");
             errors.add("Veuillez renseigner la photo de l'article.");
             errors.add("Veuillez selectioner une catégorie pour l'article.");
+            return errors;
         }
         if(!StringUtils.hasLength(articleDto.getCodeArticle())) {
             errors.add("Veuillez renseigner le code de l'article.");

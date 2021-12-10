@@ -17,6 +17,7 @@ public class CommandeClientValidator {
             errors.add("Veuillez renseigner la date de la commande client.");
             errors.add("Veuillez renseigner le nom du client.");
             errors.add("La commande client doit contenir au moins 1 article.");
+            return errors;
         }
 
         if(!StringUtils.hasLength(commandeClientDto.getCode())) {

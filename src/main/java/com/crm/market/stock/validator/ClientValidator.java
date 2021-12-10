@@ -18,6 +18,7 @@ public class ClientValidator {
             errors.add("Veuillez renseigner la photo du client.");
             errors.add("Veuillez renseigner l'email du client.");
             errors.add("Veuillez renseigner le numéro de téléphone du client.");
+            return errors;
         }
 
         if(!StringUtils.hasLength(clientDto.getNom())) {

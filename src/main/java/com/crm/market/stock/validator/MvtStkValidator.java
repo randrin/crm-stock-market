@@ -16,6 +16,7 @@ public class MvtStkValidator {
             errors.add("Veuillez renseigner la quantité du mvt stock.");
             errors.add("Veuillez renseigner le code article du mvt stock.");
             errors.add("Veuillez renseigner le type du mvt stock.");
+            return errors;
         }
         if (!StringUtils.hasLength(mvtStkDto.getDateMvt().toString())) {
             errors.add("Veuillez renseigner la date du mvt stock.");

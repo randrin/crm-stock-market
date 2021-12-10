@@ -16,6 +16,7 @@ public class LigneCommandeClientValidator {
             errors.add("Veuillez renseigner le code commande client.");
             errors.add("Veuillez renseigner la quantité de la commande.");
             errors.add("Veuillez renseigner le prix unitaire de la commande.");
+            return errors;
         }
         if (!StringUtils.hasLength(ligneCommandeClientDto.getArticle().getCodeArticle())) {
             errors.add("Veuillez renseigner le code de l'article.");

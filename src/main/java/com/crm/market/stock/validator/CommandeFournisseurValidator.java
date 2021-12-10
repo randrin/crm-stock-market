@@ -17,6 +17,7 @@ public class CommandeFournisseurValidator {
             errors.add("Veuillez renseigner la date de la commande fournisseur.");
             errors.add("Veuillez renseigner le nom du fournisseur.");
             errors.add("La commande fournisseur doit contenir au moins 1 article.");
+            return errors;
         }
 
         if(!StringUtils.hasLength(commandeFournisseurDto.getCode())) {

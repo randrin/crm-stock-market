@@ -17,6 +17,8 @@ public class VentesDto {
 
     private List<LigneVenteDto> ligneVentes;
 
+    private Integer idEntreprise;
+
     public static VentesDto fromEntity(Ventes ventes) {
         if(ventes == null) {
             return null;
@@ -27,6 +29,7 @@ public class VentesDto {
                 .code(ventes.getCode())
                 .ligneVentes(ventes.getLigneVentes() != null ?
                         ventes.getLigneVentes().stream().map(LigneVenteDto::fromEntity).collect(Collectors.toList()) : null)
+                .idEntreprise(ventes.getIdEntreprise())
                 .build();
     }
 
@@ -40,6 +43,7 @@ public class VentesDto {
         ventes.setCode(ventesDto.getCode());
         ventes.setLigneVentes(ventesDto.getLigneVentes() != null ?
                 ventesDto.getLigneVentes().stream().map(LigneVenteDto::toEntity).collect(Collectors.toList()) : null);
+        ventes.setIdEntreprise(ventesDto.getIdEntreprise());
 
         return ventes;
     }

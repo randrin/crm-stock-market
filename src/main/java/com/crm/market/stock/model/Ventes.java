@@ -25,4 +25,6 @@ public class Ventes extends AbstractEntity {
     private Instant dateVente;
 
     private String commentaire;
+
+    private Integer idEntreprise;
 }

@@ -20,6 +20,8 @@ public class CategoryDto {
     @JsonIgnore
     private List<ArticleDto> articles;
 
+    private Integer idEntreprise;
+
     public static CategoryDto fromEntity(Category category) {
         if(category == null) {
             return null;
@@ -29,6 +31,7 @@ public class CategoryDto {
                 .id(category.getId())
                 .designation(category.getDesignation())
                 .code(category.getCode())
+                .idEntreprise(category.getIdEntreprise())
                 .build();
     }
 
@@ -41,6 +44,7 @@ public class CategoryDto {
         category.setId(categoryDto.getId());
         category.setCode(categoryDto.getCode());
         category.setDesignation(categoryDto.getDesignation());
+        category.setIdEntreprise(categoryDto.getIdEntreprise());
 
         return category;
     }

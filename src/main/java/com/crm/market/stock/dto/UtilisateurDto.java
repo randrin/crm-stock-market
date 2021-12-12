@@ -32,8 +32,6 @@ public class UtilisateurDto {
 
     private List<RolesDto> roles;
 
-    private Integer idEntreprise;
-
     public static UtilisateurDto fromEntity(Utilisateur utilisateur) {
         if(utilisateur == null) {
             return null;
@@ -51,7 +49,6 @@ public class UtilisateurDto {
                 .entreprise(EntrepriseDto.fromEntity(utilisateur.getEntreprise()))
                 .roles(utilisateur.getRoles() != null
                         ? utilisateur.getRoles().stream().map(RolesDto::fromEntity).collect(Collectors.toList()) : null)
-                .idEntreprise(utilisateur.getIdEntreprise())
                 .build();
     }
 
@@ -72,7 +69,6 @@ public class UtilisateurDto {
         utilisateur.setEntreprise(EntrepriseDto.toEntity(utilisateurDto.getEntreprise()));
         utilisateur.setRoles(utilisateurDto.getRoles() != null ?
                 utilisateurDto.getRoles().stream().map(RolesDto::toEntity).collect(Collectors.toList()) : null);
-        utilisateur.setIdEntreprise(utilisateurDto.getIdEntreprise());
 
         return utilisateur;
     }

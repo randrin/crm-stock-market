@@ -32,8 +32,6 @@ public class EntrepriseDto {
 
     private List<UtilisateurDto> utilisateurs;
 
-    private Integer idEntreprise;
-
     public static EntrepriseDto fromEntity(Entreprise entreprise) {
         if (entreprise == null) {
             return null;
@@ -51,7 +49,6 @@ public class EntrepriseDto {
                 .siteWeb(entreprise.getSiteWeb())
                 .utilisateurs(entreprise.getUtilisateurs() != null ?
                         entreprise.getUtilisateurs().stream().map(UtilisateurDto::fromEntity).collect(Collectors.toList()) : null)
-                .idEntreprise(entreprise.getIdEntreprise())
                 .build();
     }
 
@@ -72,7 +69,6 @@ public class EntrepriseDto {
         entreprise.setSiteWeb(entrepriseDto.getSiteWeb());
         entreprise.setUtilisateurs(entrepriseDto.getUtilisateurs() != null ?
                 entrepriseDto.getUtilisateurs().stream().map(UtilisateurDto::toEntity).collect(Collectors.toList()) : null);
-        entreprise.setIdEntreprise(entrepriseDto.getIdEntreprise());
 
         return entreprise;
     }

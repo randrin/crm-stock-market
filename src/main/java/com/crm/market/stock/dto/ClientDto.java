@@ -28,6 +28,8 @@ public class ClientDto {
 
     private List<CommandeClientDto> commandeClients;
 
+    private Integer idEntreprise;
+
     public static ClientDto fromEntity(Client client) {
         if(client == null) {
             return null;
@@ -43,6 +45,7 @@ public class ClientDto {
                 .numTel(client.getNumTel())
                 .commandeClients(client.getCommandeClients() != null
                         ? client.getCommandeClients().stream().map(CommandeClientDto::fromEntity).collect(Collectors.toList()) : null)
+                .idEntreprise(client.getIdEntreprise())
                 .build();
     }
 
@@ -61,6 +64,7 @@ public class ClientDto {
         client.setNumTel(clientDto.getNumTel());
         client.setCommandeClients(clientDto.getCommandeClients() != null ?
                 clientDto.getCommandeClients().stream().map(CommandeClientDto::toEntity).collect(Collectors.toList()) : null);
+        client.setIdEntreprise(client.getIdEntreprise());
 
         return client;
     }

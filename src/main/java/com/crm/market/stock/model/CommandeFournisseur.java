@@ -25,4 +25,6 @@ public class CommandeFournisseur extends AbstractEntity {
 
     @OneToMany(mappedBy = "commandeFournisseur")
     private List<LigneCommandeFournisseur> ligneCommandeFournisseurs;
+
+    private Integer idEntreprise;
 }

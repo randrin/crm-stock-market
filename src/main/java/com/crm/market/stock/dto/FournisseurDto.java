@@ -28,6 +28,8 @@ public class FournisseurDto {
 
     private List<CommandeFournisseurDto> commandeFournisseurs;
 
+    private Integer idEntreprise;
+
     public static FournisseurDto fromEntity(Fournisseur fournisseur) {
         if(fournisseur == null) {
             return null;
@@ -43,6 +45,7 @@ public class FournisseurDto {
                 .numTel(fournisseur.getNumTel())
                 .commandeFournisseurs(fournisseur.getCommandeFournisseurs() != null
                         ? fournisseur.getCommandeFournisseurs().stream().map(CommandeFournisseurDto::fromEntity).collect(Collectors.toList()) : null)
+                .idEntreprise(fournisseur.getIdEntreprise())
                 .build();
     }
 
@@ -61,6 +64,7 @@ public class FournisseurDto {
         fournisseur.setNumTel(fournisseurDto.getNumTel());
         fournisseur.setCommandeFournisseurs(fournisseurDto.getCommandeFournisseurs() != null ?
                 fournisseurDto.getCommandeFournisseurs().stream().map(CommandeFournisseurDto::toEntity).collect(Collectors.toList()) : null);
+        fournisseur.setIdEntreprise(fournisseurDto.getIdEntreprise());
 
         return fournisseur;
     }

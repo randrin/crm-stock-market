@@ -14,7 +14,9 @@ spring:
     properties:
       hibernate:
         dialect: org.hibernate.dialect.MySQL5Dialect
-server:
+  mvc:
+    pathmatch:
+      matching-strategy: ant-path-matcher
   port: 8081
 flickr:
   apiKey: 5b074c4d1a14673128549500d178218a

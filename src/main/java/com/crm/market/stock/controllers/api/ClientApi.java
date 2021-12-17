@@ -14,7 +14,7 @@ import java.util.List;
 @Api(Constants.API_ROOT + "Client API")
 public interface ClientApi {
 
-    @PostMapping(value = Constants.API_ROOT + "/client/create", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+    @PostMapping(value = Constants.API_CLIENT + "/create", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
     @ApiOperation(value = "Save Client", notes = "Api to save client in store", response = ClientDto.class)
     @ApiResponses(value = {
             @ApiResponse(code = 200, message = "Client save successfully."),
@@ -22,7 +22,7 @@ public interface ClientApi {
     })
     ClientDto save(@RequestBody ClientDto clientDto);
 
-    @GetMapping(value = Constants.API_ROOT + "/client/id={id}", produces = MediaType.APPLICATION_JSON_VALUE)
+    @GetMapping(value = Constants.API_CLIENT + "/id={id}", produces = MediaType.APPLICATION_JSON_VALUE)
     @ApiOperation(value = "Find Client By ID", notes = "Api to find client by id in store", response = ClientDto.class)
     @ApiResponses(value = {
             @ApiResponse(code = 200, message = "Client found successfully by ID."),
@@ -30,7 +30,7 @@ public interface ClientApi {
     })
     ClientDto findById(@PathVariable Integer id);
 
-    @GetMapping(value = Constants.API_ROOT + "/client/mail={mail}", produces = MediaType.APPLICATION_JSON_VALUE)
+    @GetMapping(value = Constants.API_CLIENT + "/mail={mail}", produces = MediaType.APPLICATION_JSON_VALUE)
     @ApiOperation(value = "Find Client By Mail", notes = "Api to find client by mail in store", response = ClientDto.class)
     @ApiResponses(value = {
             @ApiResponse(code = 200, message = "Client found successfully by MAIL."),
@@ -45,7 +45,7 @@ public interface ClientApi {
     })
     List<ClientDto> findAll();
 
-    @DeleteMapping(value = Constants.API_ROOT + "/client/delete/id={id}")
+    @DeleteMapping(value = Constants.API_CLIENT + "/delete/id={id}")
     @ApiOperation(value = "Delete Client by ID", notes = "Api to delete client by id in store")
     @ApiResponses(value = {
             @ApiResponse(code = 200, message = "Client deleted successfully by ID."),

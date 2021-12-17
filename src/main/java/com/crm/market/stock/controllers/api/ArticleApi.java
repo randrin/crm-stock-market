@@ -14,7 +14,7 @@ import java.util.List;
 @Api(Constants.API_ROOT + "Article API")
 public interface ArticleApi {
 
-    @PostMapping(value = Constants.API_ROOT + "/article/create", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+    @PostMapping(value = Constants.API_ARTICLE + "/create", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
     @ApiOperation(value = "Save Article", notes = "Api to save article in store", response = ArticleDto.class)
     @ApiResponses(value = {
             @ApiResponse(code = 200, message = "Article save successfully."),
@@ -22,7 +22,7 @@ public interface ArticleApi {
     })
     ArticleDto save(@RequestBody ArticleDto articleDto);
 
-    @GetMapping(value = Constants.API_ROOT + "/article/id={id}", produces = MediaType.APPLICATION_JSON_VALUE)
+    @GetMapping(value = Constants.API_ARTICLE + "/id={id}", produces = MediaType.APPLICATION_JSON_VALUE)
     @ApiOperation(value = "Find Article By ID", notes = "Api to find article by id in store", response = ArticleDto.class)
     @ApiResponses(value = {
             @ApiResponse(code = 200, message = "Article found successfully by ID."),
@@ -30,7 +30,7 @@ public interface ArticleApi {
     })
     ArticleDto findById(@PathVariable Integer id);
 
-    @GetMapping(value = Constants.API_ROOT + "/article/code={code}", produces = MediaType.APPLICATION_JSON_VALUE)
+    @GetMapping(value = Constants.API_ARTICLE + "/code={code}", produces = MediaType.APPLICATION_JSON_VALUE)
     @ApiOperation(value = "Find Article By CODE", notes = "Api to find article by code in store", response = ArticleDto.class)
     @ApiResponses(value = {
             @ApiResponse(code = 200, message = "Article found successfully by CODE."),
@@ -45,7 +45,7 @@ public interface ArticleApi {
     })
     List<ArticleDto> findAll();
 
-    @DeleteMapping(value = Constants.API_ROOT + "/article/delete/id={id}")
+    @DeleteMapping(value = Constants.API_ARTICLE + "/delete/id={id}")
     @ApiOperation(value = "Delete Article by ID", notes = "Api to delete article by id in store")
     @ApiResponses(value = {
             @ApiResponse(code = 200, message = "Article deleted successfully by ID."),

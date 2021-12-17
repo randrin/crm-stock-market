@@ -14,7 +14,7 @@ import java.util.List;
 @Api(Constants.API_ROOT + "Category API")
 public interface CategoryApi {
 
-    @PostMapping(value = Constants.API_ROOT + "/category/create", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+    @PostMapping(value = Constants.API_CATEGORY + "/create", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
     @ApiOperation(value = "Save Category", notes = "Api to save category in store", response = CategoryDto.class)
     @ApiResponses(value = {
             @ApiResponse(code = 200, message = "Category save successfully."),
@@ -22,7 +22,7 @@ public interface CategoryApi {
     })
     CategoryDto save(@RequestBody CategoryDto categoryDto);
 
-    @GetMapping(value = Constants.API_ROOT + "/category/id={id}", produces = MediaType.APPLICATION_JSON_VALUE)
+    @GetMapping(value = Constants.API_CATEGORY + "/id={id}", produces = MediaType.APPLICATION_JSON_VALUE)
     @ApiOperation(value = "Find Category By ID", notes = "Api to find category by id in store", response = CategoryDto.class)
     @ApiResponses(value = {
             @ApiResponse(code = 200, message = "Category found successfully by ID."),
@@ -30,7 +30,7 @@ public interface CategoryApi {
     })
     CategoryDto findById(@PathVariable Integer id);
 
-    @GetMapping(value = Constants.API_ROOT + "/category/code={code}", produces = MediaType.APPLICATION_JSON_VALUE)
+    @GetMapping(value = Constants.API_CATEGORY + "/code={code}", produces = MediaType.APPLICATION_JSON_VALUE)
     @ApiOperation(value = "Find Category By CODE", notes = "Api to find category by code in store", response = CategoryDto.class)
     @ApiResponses(value = {
             @ApiResponse(code = 200, message = "Category found successfully by CODE."),
@@ -45,7 +45,7 @@ public interface CategoryApi {
     })
     List<CategoryDto> findAll();
 
-    @DeleteMapping(value = Constants.API_ROOT + "/category/delete/id={id}")
+    @DeleteMapping(value = Constants.API_CATEGORY + "/delete/id={id}")
     @ApiOperation(value = "Delete Category by ID", notes = "Api to delete category by id in store")
     @ApiResponses(value = {
             @ApiResponse(code = 200, message = "Category deleted successfully by ID."),

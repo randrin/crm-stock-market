@@ -52,5 +52,4 @@ public interface CommandeClientApi {
             @ApiResponse(code = 200, message = "Order Client deleted successfully by ID."),
     })
     ResponseEntity deleteById(@PathVariable Integer id);
-
 }

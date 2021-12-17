@@ -28,13 +28,13 @@ public class ArticleDto {
 
     private CategoryDto category;
 
-    private List<LigneVenteDto> ligneVentes;
-
-    private List<LigneCommandeClientDto> ligneCommandeClients;
-
-    private List<LigneCommandeFournisseurDto> ligneCommandeFournisseurs;
-
-    private List<MvtStkDto> mvtStks;
+//    private List<LigneVenteDto> ligneVentes;
+//
+//    private List<LigneCommandeClientDto> ligneCommandeClients;
+//
+//    private List<LigneCommandeFournisseurDto> ligneCommandeFournisseurs;
+//
+//    private List<MvtStkDto> mvtStks;
 
     private Integer idEntreprise;
 
@@ -52,14 +52,14 @@ public class ArticleDto {
                 .prixUnitaireTtc(article.getPrixUnitaireTtc())
                 .photo(article.getPhoto())
                 .category(CategoryDto.fromEntity(article.getCategory()))
-                .ligneVentes(article.getLigneVentes() != null ?
-                        article.getLigneVentes().stream().map(LigneVenteDto::fromEntity).collect(Collectors.toList()) : null)
-                .ligneCommandeClients(article.getLigneCommandeClients() != null ?
-                        article.getLigneCommandeClients().stream().map(LigneCommandeClientDto::fromEntity).collect(Collectors.toList()) : null)
-                .ligneCommandeFournisseurs(article.getLigneCommandeFournisseurs() != null ?
-                        article.getLigneCommandeFournisseurs().stream().map(LigneCommandeFournisseurDto::fromEntity).collect(Collectors.toList()) : null)
-                .mvtStks(article.getMvtStks() != null ?
-                        article.getMvtStks().stream().map(MvtStkDto::fromEntity).collect(Collectors.toList()) : null)
+//                .ligneVentes(article.getLigneVentes() != null ?
+//                        article.getLigneVentes().stream().map(LigneVenteDto::fromEntity).collect(Collectors.toList()) : null)
+//                .ligneCommandeClients(article.getLigneCommandeClients() != null ?
+//                        article.getLigneCommandeClients().stream().map(LigneCommandeClientDto::fromEntity).collect(Collectors.toList()) : null)
+//                .ligneCommandeFournisseurs(article.getLigneCommandeFournisseurs() != null ?
+//                        article.getLigneCommandeFournisseurs().stream().map(LigneCommandeFournisseurDto::fromEntity).collect(Collectors.toList()) : null)
+//                .mvtStks(article.getMvtStks() != null ?
+//                        article.getMvtStks().stream().map(MvtStkDto::fromEntity).collect(Collectors.toList()) : null)
                 .idEntreprise(article.getIdEntreprise())
                 .build();
     }

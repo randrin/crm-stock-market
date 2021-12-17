@@ -7,10 +7,7 @@ import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiResponse;
 import io.swagger.annotations.ApiResponses;
 import org.springframework.http.MediaType;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -23,7 +20,7 @@ public interface ArticleApi {
             @ApiResponse(code = 200, message = "Article save successfully."),
             @ApiResponse(code = 400, message = "Article not valid.")
     })
-    ArticleDto save(ArticleDto articleDto);
+    ArticleDto save(@RequestBody ArticleDto articleDto);
 
     @GetMapping(value = Constants.API_ROOT + "/article/id={id}", produces = MediaType.APPLICATION_JSON_VALUE)
     @ApiOperation(value = "Find Article By ID", notes = "Api to find article by id in store", response = ArticleDto.class)
@@ -39,7 +36,7 @@ public interface ArticleApi {
             @ApiResponse(code = 200, message = "Article found successfully by CODE."),
             @ApiResponse(code = 404, message = "Article not found.")
     })
-    ArticleDto findByCodeArticle(@PathVariable String codeArticle);
+    ArticleDto findByCodeArticle(@PathVariable String code);
 
     @GetMapping(value = Constants.API_ROOT + "/articles", produces = MediaType.APPLICATION_JSON_VALUE)
     @ApiOperation(value = "Get all Articles", notes = "Api to get all articles in store", response = ArticleDto.class)

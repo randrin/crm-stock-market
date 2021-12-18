@@ -1,16 +1,19 @@
 package com.crm.market.stock.services.impl;
 
-import com.crm.market.stock.dto.CommandeClientDto;
 import com.crm.market.stock.dto.CommandeFournisseurDto;
-import com.crm.market.stock.dto.LigneCommandeClientDto;
 import com.crm.market.stock.dto.LigneCommandeFournisseurDto;
 import com.crm.market.stock.exception.EntityNotFoundException;
 import com.crm.market.stock.exception.ErrorCodes;
 import com.crm.market.stock.exception.InvalidEntityException;
-import com.crm.market.stock.model.*;
-import com.crm.market.stock.repository.*;
+import com.crm.market.stock.model.Article;
+import com.crm.market.stock.model.CommandeFournisseur;
+import com.crm.market.stock.model.Fournisseur;
+import com.crm.market.stock.model.LigneCommandeFournisseur;
+import com.crm.market.stock.repository.ArticleRepository;
+import com.crm.market.stock.repository.CommandeFournisseurRepository;
+import com.crm.market.stock.repository.FournisseurRepository;
+import com.crm.market.stock.repository.LigneCommandeFournisseurRepository;
 import com.crm.market.stock.services.CommandeFournisseurService;
-import com.crm.market.stock.validator.CommandeClientValidator;
 import com.crm.market.stock.validator.CommandeFournisseurValidator;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;

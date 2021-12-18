@@ -1,12 +1,13 @@
 package com.crm.market.stock.services.impl;
 
-import com.crm.market.stock.dto.CommandeFournisseurDto;
 import com.crm.market.stock.dto.LigneVenteDto;
 import com.crm.market.stock.dto.VentesDto;
 import com.crm.market.stock.exception.EntityNotFoundException;
 import com.crm.market.stock.exception.ErrorCodes;
 import com.crm.market.stock.exception.InvalidEntityException;
-import com.crm.market.stock.model.*;
+import com.crm.market.stock.model.Article;
+import com.crm.market.stock.model.LigneVente;
+import com.crm.market.stock.model.Ventes;
 import com.crm.market.stock.repository.ArticleRepository;
 import com.crm.market.stock.repository.LigneVenteRepository;
 import com.crm.market.stock.repository.VentesRepository;

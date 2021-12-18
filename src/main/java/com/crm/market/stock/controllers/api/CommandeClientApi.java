@@ -15,7 +15,7 @@ import java.util.List;
 @Api(Constants.API_ROOT + "Order Client API")
 public interface CommandeClientApi {
 
-    @PostMapping(value = Constants.API_ORDER + "/create", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+    @PostMapping(value = Constants.API_ORDER_CLIENT + "/create", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
     @ApiOperation(value = "Save Order Client", notes = "Api to save order client in store", response = CommandeClientDto.class)
     @ApiResponses(value = {
             @ApiResponse(code = 200, message = "Order Client save successfully."),
@@ -23,7 +23,7 @@ public interface CommandeClientApi {
     })
     ResponseEntity<CommandeClientDto> save(@RequestBody CommandeClientDto commandeClientDto);
 
-    @GetMapping(value = Constants.API_ORDER + "/id={id}", produces = MediaType.APPLICATION_JSON_VALUE)
+    @GetMapping(value = Constants.API_ORDER_CLIENT + "/id={id}", produces = MediaType.APPLICATION_JSON_VALUE)
     @ApiOperation(value = "Find Order Client By ID", notes = "Api to find order client by id in store", response = CommandeClientDto.class)
     @ApiResponses(value = {
             @ApiResponse(code = 200, message = "Order Client found successfully by ID."),
@@ -31,7 +31,7 @@ public interface CommandeClientApi {
     })
     ResponseEntity<CommandeClientDto> findById(@PathVariable Integer id);
 
-    @GetMapping(value = Constants.API_ORDER + "/code={code}", produces = MediaType.APPLICATION_JSON_VALUE)
+    @GetMapping(value = Constants.API_ORDER_CLIENT + "/code={code}", produces = MediaType.APPLICATION_JSON_VALUE)
     @ApiOperation(value = "Find Order Client By CODE", notes = "Api to find order client by code in store", response = CommandeClientDto.class)
     @ApiResponses(value = {
             @ApiResponse(code = 200, message = "Order Client found successfully by CODE."),
@@ -46,7 +46,7 @@ public interface CommandeClientApi {
     })
     ResponseEntity<List<CommandeClientDto>> findAll();
 
-    @DeleteMapping(value = Constants.API_ORDER + "/delete/id={id}")
+    @DeleteMapping(value = Constants.API_ORDER_CLIENT + "/delete/id={id}")
     @ApiOperation(value = "Delete Order Client by ID", notes = "Api to delete order client by id in store")
     @ApiResponses(value = {
             @ApiResponse(code = 200, message = "Order Client deleted successfully by ID."),

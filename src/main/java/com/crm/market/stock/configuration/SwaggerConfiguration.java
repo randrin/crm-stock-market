@@ -1,16 +1,18 @@
 package com.crm.market.stock.configuration;
 
+import com.crm.market.stock.utils.Constants;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import springfox.documentation.builders.PathSelectors;
 import springfox.documentation.builders.RequestHandlerSelectors;
-import springfox.documentation.service.ApiInfo;
-import springfox.documentation.service.Contact;
+import springfox.documentation.service.*;
 import springfox.documentation.spi.DocumentationType;
+import springfox.documentation.spi.service.contexts.SecurityContext;
 import springfox.documentation.spring.web.plugins.Docket;
 import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
 import java.util.Collections;
+import java.util.List;
 
 @Configuration
 @EnableSwagger2
@@ -20,6 +22,9 @@ public class SwaggerConfiguration {
     public Docket docket() {
         return new Docket(DocumentationType.SWAGGER_2)
                 .apiInfo(getApiInfos())
+                .securityContexts(Collections.singletonList(securityContext()))
+                .securitySchemes(Collections.singletonList(apiKey()))
+                .useDefaultResponseMessages(false)
                 .select()
                 .paths(PathSelectors.any())
                 .apis(RequestHandlerSelectors.basePackage("com.crm.market.stock"))
@@ -35,5 +40,22 @@ public class SwaggerConfiguration {
                 "Terms of Use Licence",
                 "https://github.com/randrin/Server-Components/blob/master/README.md",
                 Collections.emptyList());
+    }
+
+    private ApiKey apiKey() {
+        return new ApiKey("JWT", Constants.STOCK_AUTHORIZATION, "header");
+    }
+
+    private SecurityContext securityContext() {
+        return SecurityContext.builder()
+                .securityReferences(defaultAuth())
+                .build();
+    }
+
+    List<SecurityReference> defaultAuth() {
+        AuthorizationScope authorizationScope = new AuthorizationScope("global", "accessEverything");
+        AuthorizationScope[] authorizationScopes = new AuthorizationScope[1];
+        authorizationScopes[0] = authorizationScope;
+        return Collections.singletonList(new SecurityReference("JWT", authorizationScopes));
     }
 }

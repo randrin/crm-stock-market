@@ -61,6 +61,7 @@ public class StockMarketJwtUtilService {
                 .setSubject(extendedUser.getUsername())
                 .setIssuedAt(new Date(System.currentTimeMillis()))
                 .setExpiration(new Date(System.currentTimeMillis() + Constants.STOCK_EXPIRATION_TOKEN))
+                .claim("idEntreprise", extendedUser.getIdEntreprise().toString())
                 .signWith(SignatureAlgorithm.HS256, Constants.STOCK_SECRET_KEY).compact();
     }
 

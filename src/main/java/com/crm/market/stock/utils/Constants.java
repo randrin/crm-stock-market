@@ -2,6 +2,7 @@ package com.crm.market.stock.utils;
 
 public class Constants {
 
+    //ENDPOINTS API
     public static final String API_ROOT = "crm/stock/v2";
     public static final String API_ARTICLE = API_ROOT + "/article";
     public static final String API_CATEGORY = API_ROOT + "/category";
@@ -13,8 +14,17 @@ public class Constants {
     public static final String API_ORDER_PROVIDER = API_ROOT + "/provider/order";
     public static final String API_SALES = API_ROOT + "/sales";
 
+    //AUTHENTICATION
     public static final String STOCK_SECRET_KEY = "crm-stock-market-be4f";
     public static final int STOCK_EXPIRATION_TOKEN = 1000 * 60 * 60 * 10;
     public static final String STOCK_AUTHORIZATION = "Authorization";
     public static final String STOCK_HEADER = "Bearer ";
+    public static final String API_AUTH = API_ROOT + "/authentication";
+    public static final String API_LOGIN = "/login";
+
+    //UTILS
+    public static final String STOCK_ROLE_ADMIN = "ADMIN";
+    public static final String STOCK_ROLE_USER = "USER";
+    public static final String STOCK_ROLE_MODERATOR = "MODERATOR";
+
 }

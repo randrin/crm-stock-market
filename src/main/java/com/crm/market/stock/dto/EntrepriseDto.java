@@ -1,7 +1,7 @@
 package com.crm.market.stock.dto;
 
+import com.crm.market.stock.dto.common.AddresseDto;
 import com.crm.market.stock.model.Entreprise;
-import com.crm.market.stock.model.common.Addresse;
 import lombok.Builder;
 import lombok.Data;
 
@@ -18,7 +18,7 @@ public class EntrepriseDto {
 
     private String description;
 
-    private Addresse addresse;
+    private AddresseDto addresse;
 
     private String codeFiscale;
 
@@ -41,7 +41,7 @@ public class EntrepriseDto {
                 .id(entreprise.getId())
                 .nom(entreprise.getNom())
                 .description(entreprise.getDescription())
-                .addresse(entreprise.getAddresse())
+                .addresse(AddresseDto.fromEntity(entreprise.getAddresse()))
                 .codeFiscale(entreprise.getCodeFiscale())
                 .photo(entreprise.getPhoto())
                 .email(entreprise.getEmail())
@@ -61,7 +61,7 @@ public class EntrepriseDto {
         entreprise.setId(entrepriseDto.getId());
         entreprise.setNom(entrepriseDto.getNom());
         entreprise.setDescription(entrepriseDto.getDescription());
-        entreprise.setAddresse(entrepriseDto.getAddresse());
+        entreprise.setAddresse(AddresseDto.toEntity(entrepriseDto.getAddresse()));
         entreprise.setCodeFiscale(entrepriseDto.getCodeFiscale());
         entreprise.setPhoto(entrepriseDto.getPhoto());
         entreprise.setEmail(entrepriseDto.getEmail());

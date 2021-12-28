@@ -15,7 +15,7 @@ public class ErrorDto {
 
     private Integer httpCode;
 
-    private ErrorCodes erroCodes;
+    private ErrorCodes errorCodes;
 
     private String message;
 

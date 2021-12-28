@@ -31,8 +31,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
         .passwordEncoder(bCryptPasswordEncoder());
     }
 
-    @Override
-    @Bean(name = BeanIds.AUTHENTICATION_MANAGER)
+    @Bean
     protected AuthenticationManager authenticationManager() throws Exception {
         return super.authenticationManagerBean();
     }
@@ -40,12 +39,17 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.csrf().disable()
-            .authorizeRequests().antMatchers("/**/authenticate",
-                "/**/entreprises/create", "/v2/api-docs",
-                "/swagger-resources", "/swagger-resources/**",
-                "/configuaration/ui", "/configuration/security",
-                "/swagger-ui.html", "webjars/**",
-                "/v3/api-docs/**", "/swagger-ui/**").permitAll()
+            .authorizeRequests().antMatchers("/**/login",
+                "/**/entreprises/create",
+                "/v2/api-docs",
+                "/swagger-resources",
+                "/swagger-resources/**",
+                "/configuration/ui",
+                "/configuration/security",
+                "/swagger-ui.html",
+                "/webjars/**",
+                "/v3/api-docs/**",
+                "/swagger-ui/**").permitAll()
             .anyRequest().authenticated()
             .and().sessionManagement()
             .sessionCreationPolicy(SessionCreationPolicy.STATELESS);

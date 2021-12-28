@@ -19,6 +19,7 @@ spring:
   mvc:
     pathmatch:
       matching-strategy: ant-path-matcher
+server:
   port: 8081
 flickr:
   apiKey: 5b074c4d1a14673128549500d178218a

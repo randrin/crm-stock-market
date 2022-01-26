@@ -118,9 +118,10 @@ public class VentesServiceImpl implements VentesService {
 
     @Override
     public void deleteById(Integer id) {
-        if(id == null) {
+        if(id == null || !ventesRepository.existsById(id)) {
             log.error("Sales not found with id=", + id + "{}");
-            return;
+            throw new EntityNotFoundException("Not found sales with ID= " +id,
+                    ErrorCodes.VENTE_NOT_FOUND);
         }
         ventesRepository.deleteById(id);
     }

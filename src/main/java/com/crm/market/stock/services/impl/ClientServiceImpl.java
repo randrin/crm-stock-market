@@ -74,9 +74,10 @@ public class ClientServiceImpl implements ClientService {
 
     @Override
     public void deleteById(Integer id) {
-        if(id == null) {
-            log.error("Not client found id=", + id + "{}");
-            return;
+        if(id == null || !clientRepository.existsById(id)) {
+            log.error("Not found client with id=", + id + "{}");
+            throw new EntityNotFoundException("Not found client with ID= " +id,
+                    ErrorCodes.CLIENT_NOT_FOUND);
         }
         clientRepository.deleteById(id);
     }

@@ -74,9 +74,10 @@ public class FournisseurServiceImpl implements FournisseurService {
 
     @Override
     public void deleteById(Integer id) {
-        if(id == null) {
+        if(id == null || !fournisseurRepository.existsById(id)) {
             log.error("Not provider found id=", + id + "{}");
-            return;
+            throw new EntityNotFoundException("Not found provider with ID= " +id,
+                    ErrorCodes.FOURNISSEUR_NOT_FOUND);
         }
         fournisseurRepository.deleteById(id);
     }

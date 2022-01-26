@@ -12,7 +12,7 @@ import java.util.List;
 @AllArgsConstructor
 @EqualsAndHashCode(callSuper = true)
 @Entity
-@Table
+@Table(name = "article", uniqueConstraints = {@UniqueConstraint(name = "code_article_unique", columnNames = "code_article")})
 public class Article extends AbstractEntity {
 
     private String codeArticle;

@@ -74,9 +74,10 @@ public class UtilisateurServiceImpl implements UtilisateurService {
 
     @Override
     public void deleteById(Integer id) {
-        if(id == null) {
+        if(id == null || !utilisateurRepository.existsById(id)) {
             log.error("Not user found id=", + id + "{}");
-            return;
+            throw new EntityNotFoundException("Not found user with ID= " +id,
+                    ErrorCodes.UTILISATEUR_NOT_FOUND);
         }
         utilisateurRepository.deleteById(id);
     }

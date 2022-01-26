@@ -114,9 +114,10 @@ public class EntrepriseServiceImpl implements EntrepriseService {
 
     @Override
     public void deleteById(Integer id) {
-        if(id == null) {
+        if(id == null || !entrepriseRepository.existsById(id)) {
             log.error("Not business found id=", + id + "{}");
-            return;
+            throw new EntityNotFoundException("Not found business with ID= " +id,
+                    ErrorCodes.ENTREPRISE_NOT_FOUND);
         }
         entrepriseRepository.deleteById(id);
     }

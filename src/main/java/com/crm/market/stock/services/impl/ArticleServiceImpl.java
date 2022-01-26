@@ -74,9 +74,9 @@ public class ArticleServiceImpl implements ArticleService {
 
     @Override
     public void deleteById(Integer id) {
-        if(id == null) {
-            log.error("Not article found id=", + id + "{}");
-            return;
+        if(id == null || !articleRepository.existsById(id)) {
+            log.error("Not found article with id=", + id + "{}");
+            throw new EntityNotFoundException("Not found article with ID= " +id, ErrorCodes.ARTICLE_NOT_FOUND);
         }
         articleRepository.deleteById(id);
     }

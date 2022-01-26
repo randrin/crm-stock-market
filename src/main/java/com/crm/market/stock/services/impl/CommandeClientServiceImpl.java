@@ -128,9 +128,9 @@ public class CommandeClientServiceImpl implements CommandeClientService {
 
     @Override
     public void deleteById(Integer id) {
-        if(id == null) {
+        if(id == null || !commandeClientRepository.existsById(id)) {
             log.error("Order client not found with id=", + id + "{}");
-            return;
+            throw new EntityNotFoundException("Order client not found with id=" + id, ErrorCodes.CLIENT_NOT_FOUND);
         }
         commandeClientRepository.deleteById(id);
     }

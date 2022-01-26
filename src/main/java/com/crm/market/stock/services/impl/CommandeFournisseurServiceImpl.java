@@ -127,9 +127,10 @@ public class CommandeFournisseurServiceImpl implements CommandeFournisseurServic
 
     @Override
     public void deleteById(Integer id) {
-        if(id == null) {
+        if(id == null || !commandeFournisseurRepository.existsById(id)) {
             log.error("Order provider not found with id=", + id + "{}");
-            return;
+            throw new EntityNotFoundException("Not found order provider with ID= " +id,
+                    ErrorCodes.COMMANDE_FOURNISSEUR_NOT_FOUND);
         }
         commandeFournisseurRepository.deleteById(id);
     }
